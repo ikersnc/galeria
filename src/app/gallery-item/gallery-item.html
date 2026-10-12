@@ -1,0 +1,4 @@
+<figure class="card" (click)="selected.emit(photo())" (keydown.enter)="selected.emit(photo())" tabindex="0">
+  <img [src]="photo().url + '/400/300'" [alt]="photo().title" loading="lazy" />
+  <figcaption>{{ photo().title }}</figcaption>
+</figure>

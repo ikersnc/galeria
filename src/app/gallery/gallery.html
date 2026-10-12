@@ -1,0 +1,16 @@
+<section class="grid">
+  @for (photo of photos; track photo.id) {
+    <app-gallery-item [photo]="photo" (selected)="open($event)" />
+  }
+</section>
+
+@if (current(); as photo) {
+  <div class="overlay" (click)="close()" role="dialog" aria-modal="true">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <button class="close" (click)="close()" aria-label="Cerrar">&times;</button>
+      <img [src]="photo.url + '/1200/800'" [alt]="photo.title" />
+      <h2>{{ photo.title }}</h2>
+      <p>{{ photo.description }}</p>
+    </div>
+  </div>
+}

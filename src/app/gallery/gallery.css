@@ -1,0 +1,51 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 480px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; padding: 0.75rem; }
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 10;
+  animation: fade 0.2s ease-out;
+}
+.modal {
+  position: relative;
+  max-width: min(900px, 100%);
+  max-height: 100%;
+  overflow: auto;
+  background: #1c1c24;
+  color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  animation: zoom 0.25s ease-out;
+}
+.modal img { width: 100%; height: auto; max-height: 70vh; object-fit: contain; border-radius: 8px; }
+.modal h2 { margin: 0.75rem 0 0.25rem; }
+.modal p { margin: 0; opacity: 0.8; }
+.close {
+  position: absolute;
+  top: 0.5rem; right: 0.75rem;
+  font-size: 2rem;
+  line-height: 1;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 50%;
+  width: 2.2rem; height: 2.2rem;
+  cursor: pointer;
+}
+@keyframes fade { from { opacity: 0; } }
+@keyframes zoom { from { transform: scale(0.85); opacity: 0; } }
